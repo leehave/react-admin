@@ -1,0 +1,50 @@
+$side-bar: #273543;
+$border-box: border-box;
+$postion-fixed: fixed;
+$side-bar-hover:#1b2530;
+$side-width:200px;
+.app-sidebar{
+  background:  $side-bar;
+  position: $postion-fixed;
+  box-sizing: $border-box;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width:$side-width;
+  .zent-menu__inline{
+    width:$side-width;
+  }
+  .app-avatar{
+    box-sizing: $border-box;
+    margin: 14px auto;
+  }
+  .zent-menu{
+    background: $side-bar;
+    border:none;
+    box-shadow:  0 0 0 $side-bar;
+    color: #e0e0e0;
+    & li:hover{
+      background: $side-bar-hover;
+    }
+    .zent-menu__inline-item-selected{
+      background: #06070a;
+      color: #d0d0d0
+    }
+    .zent-menu__inner{
+      background: #434e6c
+    }
+    .zent-menu__inline-item:not(.zent-menu-item-disabled):hover{
+      color: #bbb
+    }
+    .zent-menu__inline-submenu-title:not(.zent-submenu-disabled).zent-menu__inline-submenu-title:hover{
+      background: #273543;
+      color: #d0d0d0;
+      .zenticon{
+        color: #bbb
+      }
+    }
+    .zent-menu__inline-item-selected:not(.zent-menu-item-disabled).zent-menu__inline-item-selected:hover{
+      background: #273543
+    }
+  }
+}
