@@ -1,8 +1,4 @@
-$side-bar: #273543;
-$border-box: border-box;
-$postion-fixed: fixed;
-$side-bar-hover:#1b2530;
-$side-width:200px;
+@import '../mixin.scss';
 .app-sidebar{
   background:  $side-bar;
   position: $postion-fixed;
@@ -10,7 +6,10 @@ $side-width:200px;
   top: 0;
   left: 0;
   bottom: 0;
-  width:$side-width;
+  flex: 0 0 $side-width;
+    max-width: $side-width;
+    min-width: $side-width;
+    width: $side-width;
   .zent-menu__inline{
     width:$side-width;
   }
