@@ -1,19 +1,16 @@
 @import '../mixin.scss';
-.app-sidebar{
+.sidebar{
   background:  $side-bar;
   position: $postion-fixed;
   box-sizing: $border-box;
   top: 0;
   left: 0;
   bottom: 0;
-  flex: 0 0 $side-width;
-    max-width: $side-width;
-    min-width: $side-width;
     width: $side-width;
   .zent-menu__inline{
     width:$side-width;
   }
-  .app-avatar{
+  .avatar{
     box-sizing: $border-box;
     margin: 14px auto;
   }
