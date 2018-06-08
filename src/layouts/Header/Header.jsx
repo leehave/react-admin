@@ -13,13 +13,14 @@ export default class Header extends Component {
         mode: 'inline',
         firstHide: true,        // 点击收缩菜单，第一次隐藏展开子菜单，openMenu时恢复
     };
+    onClick = (e, key) => {
+  console.log(e, key);
+}
     componentWillReceiveProps(nextProps) {
         console.log(nextProps);
         this.onCollapse(nextProps.collapsed);
     };
     onCollapse = (collapsed) => {
-        console.log(collapsed);
-        console.log(this.props.mode);
         this.setState({
             collapsed,
             firstHide: collapsed,
@@ -39,7 +40,7 @@ export default class Header extends Component {
                     <Avatar size="large" icon="customer"/>
                 </div>
                 <Menu
-                    mode="inline"
+                    mode={this.props.collapsed ? 'pop' : 'inline'}
                     defaultSelectedKey=""
                     defaultExpandKeys={[]}
                     onClick={onClick}>

@@ -1,7 +1,6 @@
 import React,{ Component } from 'react';
 import './App.css';
 import 'zent/css/index.css';
-import 'ionicons/dist/css/ionicons.css'
 import Header from './layouts/Header/Header'
 import Applayout from './layouts/Applayout/Applayout'
 class App extends Component {

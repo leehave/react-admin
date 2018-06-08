@@ -40,10 +40,10 @@ export default class Applayout extends Component {
         }
         return (
             <div className='layout' style={sidebarWidth.sidebar} >
-                <div className='layoutheader'>
+                <div className='layoutheader' style={{width: `calc(100% - ${this.state.collapsed ? '100px' : '200px'})`}}>
                     <div className='headercontent'>
-                        <div className='js_control'>
-                            <i className={this.props.collapsed ? 'ion-android-menu': 'ion-android-close'} onClick={this.props.toggle}></i>
+                        <div className='js_control' onClick={this.props.toggle}>
+                            <span className={this.props.collapsed ? 'ion-android-menu': 'ion-android-close'}></span>
                         </div>
                         <div className='rightheader'>
                             <Badge>
