@@ -3,7 +3,7 @@ import { Breadcrumb } from 'zent';
 import { Link } from 'react-router-dom';
 
 
-class BreadcrumbCustom extends Component {
+export default class BreadcrumbCustom extends Component {
   render (){
     const first = <Breadcrumb.Item>{this.props.first}</Breadcrumb.Item> || '';
     const second = <Breadcrumb.Item>{this.props.second}</Breadcrumb.Item> || '';

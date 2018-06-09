@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import {Menu, Avatar, Icon} from 'zent';
+import {Avatar} from 'zent';
+import SideMenu from './SideMenu';
+import {menu} from './menu'
 import header from './Header.scss';
-const {MenuItem, SubMenu} = Menu;
 const onClick = (e, key) => {
     console.log(e, key);
 }
@@ -13,9 +14,14 @@ export default class Header extends Component {
         mode: 'inline',
         firstHide: true,        // 点击收缩菜单，第一次隐藏展开子菜单，openMenu时恢复
     };
-    onClick = (e, key) => {
-  console.log(e, key);
-}
+    menuClick = e => {
+        this.setState({
+            selectedKey: e.key
+        });
+        console.log(this.state);
+        const { popoverHide } = this.props;     // 响应式布局控制小屏幕点击菜单时隐藏菜单操作
+        popoverHide && popoverHide();
+    };
     componentWillReceiveProps(nextProps) {
         console.log(nextProps);
         this.onCollapse(nextProps.collapsed);
@@ -39,33 +45,15 @@ export default class Header extends Component {
                 <div className='avatar'>
                     <Avatar size="large" icon="customer"/>
                 </div>
-                <Menu
+                <div>
+                  <SideMenu
+                    menus={menu}
                     mode={this.props.collapsed ? 'pop' : 'inline'}
                     defaultSelectedKey=""
                     defaultExpandKeys={[]}
-                    onClick={onClick}>
-                    <MenuItem key="1-1">
-                        食品分类
-                    </MenuItem>
-                    <MenuItem key="1-2">
-                        服装分类
-                    </MenuItem>
-                    <SubMenu title={"电器分类"} key="1-3">
-                        <MenuItem key="1-3-1">电视机</MenuItem>
-                        <MenuItem key="1-3-2">笔记本</MenuItem>
-                        <MenuItem key="1-3-3">洗衣机</MenuItem>
-                    </SubMenu>
-                    <SubMenu title={"美妆分类"} key="1-4">
-                        <MenuItem key="1-4-1">眼影</MenuItem>
-                        <MenuItem key="1-4-2">洗面奶</MenuItem>
-                        <SubMenu key="1-4-3" title={"食品分类"}>
-                            <MenuItem key="1-4-3-1">电视机</MenuItem>
-                            <MenuItem key="1-4-3-2">笔记本</MenuItem>
-                            <MenuItem key="1-4-3-3">洗衣机</MenuItem>
-                        </SubMenu>
-                    </SubMenu>
-                </Menu>
-
+                    onClick={this.menuClick}
+                    ></SideMenu>
+                </div>
                 <div className={header.userinfo}></div>
             </div>
         )

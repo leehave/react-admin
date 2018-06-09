@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
-import { Avatar, Icon, Badge, Popover, Menu } from 'zent';
-import layoutStyle from './Applayout.scss'
+import { Avatar, Icon, Badge, Popover, Menu,Layout } from 'zent';
+import Footer from '@/components/Footer/Footer'
+import layoutStyle from './Applayout.scss';
+import Routes from '@/router';
 const {MenuItem} = Menu;
 
 export default class Applayout extends Component {
@@ -24,6 +26,11 @@ export default class Applayout extends Component {
         this.setState({
             collapsed
      });
+    };
+    popoverHide = () => {
+        this.setState({
+            visible: false,
+        });
     };
     /* eslint-disable*/
     // @Debounce(600);
@@ -71,7 +78,10 @@ export default class Applayout extends Component {
 
                         </div>
                     </div>
+
                 </div>
+                <Routes />
+                <Footer />
             </div>
         )
     }

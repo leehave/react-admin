@@ -1,12 +1,20 @@
 import React, { Component } from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
-export default class RouterConfig {
+import Dashboard from '@/components/Dashboard/Dashboard';
+import Setting from '@/components/Setting/Setting';
+import NotFound from '@/components/NotFound/NotFound';
+import '@/layouts/mixin.scss'
   // 路由鉴权 ... 省略
-  render {
+  export default class CRouter extends Component {
+  render() {
     return (
-      <Switch>
-        <Route exact path="/app/dashboard/index" component={Dashboard} />
-      </Switch>
+      <div className="contentBody">
+        <Switch>
+          <Route exact path="/app/dashboard/index" component={Dashboard} />
+          <Route exact path="/app/setting" component={Setting} />
+          <Route exact path="/app/404" component={NotFound} />
+        </Switch>
+      </div>
     )
   }
 }
